@@ -1,0 +1,155 @@
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- 1. ACCORDION INTERATIVO ---
+    const headers = document.querySelectorAll('.accordion-header');
+    
+    headers.forEach(header => {
+        header.addEventListener('click', function() {
+            const item = this.parentElement;
+            const content = this.nextElementSibling;
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('ativo');
+                    otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+                    otherItem.querySelector('.accordion-content').setAttribute('aria-hidden', 'true');
+                }
+            });
+            
+            if (!isExpanded) {
+                item.classList.add('ativo');
+                this.setAttribute('aria-expanded', 'true');
+                content.setAttribute('aria-hidden', 'false');
+            } else {
+                item.classList.remove('ativo');
+                this.setAttribute('aria-expanded', 'false');
+                content.setAttribute('aria-hidden', 'true');
+            }
+        });
+    });
+
+    // --- 2. MENU DE ACESSIBILIDADE FLUTUANTE ---
+    const toggleAcessibilidade = document.getElementById('toggle-acessibilidade');
+    const menuAcessibilidade = document.getElementById('menu-acessibilidade');
+    
+    toggleAcessibilidade.addEventListener('click', () => {
+        const aberto = menuAcessibilidade.classList.toggle('aberto');
+        toggleAcessibilidade.setAttribute('aria-expanded', aberto);
+        menuAcessibilidade.setAttribute('aria-hidden', !aberto);
+    });
+
+    // Controle de Tamanho de Fonte
+    const body = document.body;
+    const btnAumentar = document.getElementById('btn-aumentar-fonte');
+    const btnDiminuir = document.getElementById('btn-diminuir-fonte');
+    
+    btnAumentar.addEventListener('click', () => {
+        if (!body.classList.contains('fonte-grande') && !body.classList.contains('fonte-enorme')) {
+            body.classList.add('fonte-grande');
+        } else if (body.classList.contains('fonte-grande')) {
+            body.classList.remove('fonte-grande');
+            body.classList.add('fonte-enorme');
+        }
+    });
+
+    btnDiminuir.addEventListener('click', () => {
+        if (body.classList.contains('fonte-enorme')) {
+            body.classList.remove('fonte-enorme');
+            body.classList.add('fonte-grande');
+        } else if (body.classList.contains('fonte-grande')) {
+            body.classList.remove('fonte-grande');
+        }
+    });
+
+    // Modo Contraste (Escuro/Claro)
+    const btnContraste = document.getElementById('btn-modo-contraste');
+    btnContraste.addEventListener('click', () => {
+        body.classList.toggle('modo-escuro');
+    });
+
+    // --- 3. LEITURA POR VOZ (SpeechSynthesis API) ---
+    const btnLerVoz = document.getElementById('btn-ler-voz');
+    const btnPararVoz = document.getElementById('btn-parar-voz');
+    let uttr = null;
+
+    btnLerVoz.addEventListener('click', () => {
+        window.speechSynthesis.cancel();
+        
+        // Lê estritamente o conteúdo principal estruturado da página
+        const conteudoParaLer = document.getElementById('conteudo-principal').innerText;
+        
+        uttr = new SpeechSynthesisUtterance(conteudoParaLer);
+        uttr.lang = 'pt-BR';
+        uttr.rate = 1.0;
+        
+        uttr.onstart = () => {
+            btnLerVoz.disabled = true;
+            btnPararVoz.disabled = false;
+        };
+        
+        uttr.onend = () => {
+            btnLerVoz.disabled = false;
+            btnPararVoz.disabled = true;
+        };
+
+        uttr.onerror = () => {
+            btnLerVoz.disabled = false;
+            btnPararVoz.disabled = true;
+        };
+
+        window.speechSynthesis.speak(uttr);
+    });
+
+    btnPararVoz.addEventListener('click', () => {
+        window.speechSynthesis.cancel();
+        btnLerVoz.disabled = false;
+        btnPararVoz.disabled = true;
+    });
+
+    // --- 4. FORMULÁRIO DE INSCRIÇÃO ---
+    const formSeminario = document.getElementById('form-seminario');
+    const formSucesso = document.getElementById('form-sucesso');
+
+    formSeminario.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const nome = document.getElementById('nome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const cidade = document.getElementById('cidade').value.trim();
+        const estado = document.getElementById('estado').value.trim();
+        const pais = document.getElementById('pais').value.trim();
+
+        if(nome && email && cidade && estado && pais) {
+            formSucesso.textContent = `Inscrição realizada com sucesso, ${nome}! Verifique seu e-mail.`;
+            formSucesso.style.display = 'block';
+            formSeminario.reset();
+            
+            setTimeout(() => { formSucesso.style.display = 'none'; }, 5000);
+        }
+    });
+
+    // --- 5. ÁREA DE COMENTÁRIOS ---
+    const formComentario = document.getElementById('form-comentario');
+    const listaComentarios = document.getElementById('lista-comentarios');
+    const textoComentario = document.getElementById('texto-comentario');
+
+    formComentario.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const comentarioTexto = textoComentario.value.trim();
+
+        if (comentarioTexto) {
+            const novoComentario = document.createElement('div');
+            novoComentario.classList.add('comentario-item');
+            
+            novoComentario.innerHTML = `
+                <strong>Leitor Conectado</strong>
+                <span class="comentario-data">Agora mesmo</span>
+                <p>${comentarioTexto}</p>
+            `;
+            
+            listaComentarios.insertBefore(novoComentario, listaComentarios.firstChild);
+            textoComentario.value = '';
+        }
+    });
+});

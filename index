@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroForte - Inovação Tecnológica e Sustentabilidade no Campo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="acessibilidade-container" aria-label="Menu de Acessibilidade">
+        <button class="btn-acessibilidade-toggle" id="toggle-acessibilidade" aria-expanded="false" title="Abrir menu de acessibilidade">
+            <span>♿</span>
+        </button>
+        <div class="acessibilidade-menu" id="menu-acessibilidade" aria-hidden="true">
+            <button id="btn-aumentar-fonte" title="Aumentar Fonte">Aumentar Fonte (+)</button>
+            <button id="btn-diminuir-fonte" title="Diminuir Fonte">Diminuir Fonte (-)</button>
+            <button id="btn-modo-contraste" title="Alternar Modo Escuro/Claro">Modo Escuro / Claro</button>
+            <button id="btn-ler-voz" title="Iniciar Leitura por Voz">Ouvir Conteúdo 🔊</button>
+            <button id="btn-parar-voz" title="Parar Leitura por Voz" disabled>Parar Leitura ⏹️</button>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-agro">Agro</span><span class="logo-forte">Forte</span>
+            </div>
+            <nav class="nav">
+                <a href="#home">Início</a>
+                <a href="#sobre">O Setor</a>
+                <a href="#tecnologia">Tecnologia</a>
+                <a href="#sustentabilidade">Sustentabilidade</a>
+                <a href="#seminario">Seminário</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-grid">
+            <div class="hero-conteudo">
+                <span class="hero-tag">O Futuro da Agropecuária</span>
+                <h1>Conectando a Inteligência Tecnológica à Terra</h1>
+                <p>A agricultura moderna une a sabedoria ancestral do campo às ferramentas digitais mais avançadas. Descubra como a tecnologia e as predições de inteligência artificial superam desafios e constroem um ecossistema produtivo, eficiente e verdadeiramente sustentável.</p>
+                <div class="hero-botoes">
+                    <a href="#tecnologia" class="btn btn-primario">Explorar Tecnologia</a>
+                    <a href="#seminario" class="btn btn-secundario">Inscrever-se no Seminário</a>
+                </div>
+            </div>
+            <div class="hero-imagem-container">
+                <div class="imagem"> <img src="Foto1.png" alt="Painel digital tecnológico monitorando plantações automatizadas com inteligência artificial no campo"> </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-conteudo">
+        
+        <div class="layout-split">
+            
+            <div class="conteudo-principal" id="conteudo-principal">
+                
+                <section id="sobre" class="secao-texto">
+                    <h2>A Nova Era da Agropecuária</h2>
+                    <p>Na geração atual, pouco se fala sobre agropecuária de forma aprofundada; muitos nem sequer têm entendimento real sobre a complexidade e a importância vital desse assunto para o dia a dia da sociedade.</p>
+                    
+                    <div class="cards-grid">
+                        <div class="card-info">
+                            <div class="card-icon">🌱</div>
+                            <h3>Base Social</h3>
+                            <p>O agronegócio sustenta o desenvolvimento urbano e garante a segurança alimentar global.</p>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-icon">⚡</div>
+                            <h3>Desconexão Digital</h3>
+                            <p>Existe um abismo entre o conhecimento do consumidor final e os processos modernos do campo.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="tecnologia" class="secao-texto">
+                    <h2>Avanço Tecnológico e Praticidade</h2>
+                    <p>Com o avanço gritante da tecnologia e a evolução de estudos científicos altamente elevados, o cenário agrícola ganha novos contornos, trazendo máxima praticidade ao agro e aos trabalhadores da área através de dados preditivos.</p>
+                    
+                    <div class="imagem"> <img src="Foto2.png" alt="Sensores tecnológicos coletando dados de predição do solo e plantio"> </div>
+
+                    <div class="accordion-container">
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false">
+                                <span>Predições e Análise de Dados</span>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-content" aria-hidden="true">
+                                <p>Algoritmos avançados antecipam variações climáticas, preveem o comportamento de pragas e otimizam as janelas de plantio e colheita com precisão milimétrica.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false">
+                                <span>Automação e Praticidade no Trabalho</span>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-content" aria-hidden="true">
+                                <p>Máquinas autônomas e sensores de campo reduzem o esforço físico pesado, permitindo que a força de trabalho atue de maneira mais estratégica, técnica e segura.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="sustentabilidade" class="secao-texto">
+                    <h2>Desafios Globais: O Uso Inadequado de Insumos</h2>
+                    <p>No entanto, a tecnologia deve ser guiada pela responsabilidade. O uso inadequado de agrotóxicos e defensivos agrícolas causa severos impactos negativos ao meio ambiente e à sustentabilidade do negócio.</p>
+                    
+                    <div class="alerta-bloco">
+                        <h3>Pontos de Atenção Crítica:</h3>
+                        <ul>
+                            <li><strong>Contaminação do Solo e da Água:</strong> Elementos químicos residuais afetam lençóis freáticos e destroem microrganismos benéficos à terra.</li>
+                            <li><strong>Criação de Superpragas:</strong> A aplicação incorreta ou excessiva seleciona organismos resistentes, exigindo dosagens ainda maiores e gerando um ciclo vicioso.</li>
+                            <li><strong>Riscos aos Trabalhadores:</strong> O manejo sem a devida precisão técnica e equipamentos adequados expõe o operador a riscos severos de saúde.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="secao-texto Equilíbrio">
+                    <h2>Equilíbrio para o Amanhã</h2>
+                    <p>Por fim, o agronegócio é absolutamente indispensável em nossas vidas, tanto pela nossa alimentação diária quanto para o pleno desenvolvimento socioeconômico da sociedade. No entanto, é de extrema importância manter o equilíbrio estrito entre a alta produção e o meio ambiente.</p>
+                    <p>A responsabilidade no uso e na dosagem exata dos agrotóxicos protege a biodiversidade hoje, garantindo que possamos suprir nossas necessidades atuais sem prejudicar, limitar ou comprometer as futuras gerações.</p>
+                    
+                    <div class="imagem"> <img src="Foto3.png" alt="Mãos segurando terra com broto verde sob luz solar simbolizando sustentabilidade e futuro"> </div>
+                </section>
+
+            </div>
+
+            <aside id="seminario" class="coluna-lateral">
+                <div class="card-formulario">
+                    <h3>Venha conhecer melhor como a IA pode ser uma aliada do Campo.</h3>
+                    <p>Inscreva-se no nosso seminário on-line e receba insights técnicos e preditivos exclusivos.</p>
+                    
+                    <form id="form-seminario" novalidate>
+                        <div class="grupo-campo">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" required placeholder="Digite seu nome">
+                        </div>
+                        <div class="grupo-campo">
+                            <label for="email">E-mail Corporativo</label>
+                            <input type="email" id="email" required placeholder="exemplo@agro.com">
+                        </div>
+                        <div class="grupo-campo">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" id="cidade" required placeholder="Sua cidade">
+                        </div>
+                        <div class="grupo-linha">
+                            <div class="grupo-campo">
+                                <label for="estado">Estado</label>
+                                <input type="text" id="estado" required placeholder="UF">
+                            </div>
+                            <div class="grupo-campo">
+                                <label for="pais">País</label>
+                                <input type="text" id="pais" required placeholder="Brasil">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-formulario">Garantir Minha Vaga</button>
+                    </form>
+                    <div id="form-sucesso" class="mensagem-sucesso" aria-live="polite"></div>
+                </div>
+            </aside>
+
+        </div>
+
+        <section class="secao-comentarios">
+            <h2>Espaço de Interação & Discussão</h2>
+            <p>Deixe sua opinião ou dúvida sobre como conciliar tecnologia, inteligência artificial e sustentabilidade no agronegócio contemporâneo.</p>
+            
+            <form id="form-comentario">
+                <div class="grupo-campo">
+                    <label for="texto-comentario">Seu Comentário</label>
+                    <textarea id="texto-comentario" rows="4" required placeholder="Escreva aqui seu ponto de vista técnico ou dúvida..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primario">Enviar Comentário</button>
+            </form>
+
+            <div class="lista-comentarios" id="lista-comentarios">
+                <div class="comentario-item">
+                    <strong>Eng. Carlos Augusto</strong>
+                    <span class="comentario-data">Hoje</span>
+                    <p>Excelente abordagem. As ferramentas de IA e sensores IoT de fato otimizam a dosagem de insumos, reduzindo o impacto ambiental significativamente.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-frase">
+                <p><strong>AgroFuturo 2026 ° Conectando a inteligência tecnologia à terra de forma sustentável</strong></p>
+            </div>
+            <div class="footer-referencias">
+                <h4>Referências Utilizadas:</h4>
+                <ul>
+                    <li>Conteúdo Inteligente & Insights - <a href="https://gemini.google.com/?hl=pt-BR" target="_blank" rel="noopener">Gemini AI Engine (Google)</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
